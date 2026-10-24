@@ -1,0 +1,28 @@
+import pandas as pd
+import seaborn as sns
+#import duckdb
+import matplotlib.pyplot as plt
+
+cliff = pd.read_csv("/Users/ShivaniAnand/Downloads/panel_cliff_sports.csv")
+#print(cliff.head())
+
+snowboarding = cliff[(cliff['article'] == 'Snowboarding')]
+print(snowboarding.head())
+plt.bar(snowboarding['days_from_games'], snowboarding['views'])
+plt.title('Wikipedia Views of "Snowboarding" Across Days from the Most Recent Olympic Games')
+plt.xlabel('Days from Most Recent Olympic Games')
+plt.ylabel('Number of Views')
+plt.xlim(-150, 150)
+#plt.show()
+
+plt.clf()
+
+swimming = cliff[(cliff['article'] == 'Competitive_swimming')]
+print(swimming)
+plt.bar(swimming['days_from_games'], swimming['views'])
+plt.title('Wikipedia Views of "Competitive Swimming" Across Days from the Most Recent Olympic Games')
+plt.xlabel('Days from Most Recent Olympic Games')
+plt.ylabel('Number of Views')
+plt.xlim(-150, 150)
+plt.show()
+
